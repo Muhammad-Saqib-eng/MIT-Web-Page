@@ -1,0 +1,335 @@
+ /* General Reset */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-left: 80px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;/* Keeps the sidebar fixed on scroll */
+    top: 90px;
+    left: 0;
+    width: 350px;
+    height: calc(100vh - 50px);/* Fills the viewport height minus padding. 
+                                  so side bar content starts after header */
+    background: #f4f4f4;
+    padding: 1rem;
+    border-right: 2px solid #ddd; /* Adds a separating border */
+    overflow-y: auto;    /* Enables scrolling if content overflows */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    color: #A31F34;
+    margin-bottom: 1rem;
+}
+
+.sidebar form {
+    display: flex; /* Aligns input and search icon horizontally */
+    align-items: center;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.sidebar form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline:#333;
+   
+}
+
+.sidebar form input[type="text"]:focus {
+    border-color: #A31F34;
+}
+
+.sidebar form i {
+    color: #bd4c4c;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);/* Organizes links in two columns */
+    gap: 1rem; /* Adds spacing between links */
+}
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #A31F34;
+}
+
+/* Main Content Wrapper */
+.main-content {
+    margin-left: 250px;  /* Leaves space for the sidebar */
+    width: calc(100% - 250px);
+    padding: 2rem;
+}
+
+/* Header Styling */
+header {
+    background: #741927;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    position: fixed; /* Keeps header visible on scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12%;
+    z-index: 1;   /* Ensures header is above other elements */
+}
+
+header .logo {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: auto;
+    
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding-right: 20rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    position: relative;
+    height: 60vh;
+}
+
+.hero img {
+    padding-left: 15px;
+    width: 100%;
+    height: fit-content;
+    object-fit: contain;  /* Ensures the image fits without distortion */
+}
+
+.hero .text {
+    padding: 2rem;
+    background-color: #fff;
+    color: #333;
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Main Content - Grid Layout */
+.content {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(3, 1fr);
+gap: 2rem;
+padding-top: 500px;/* Adds space above so content appears after header*/
+min-height: 100vh;
+}
+
+/* For small devices like phones */
+@media (max-width: 480px) {
+.content {
+grid-template-columns: 1fr; /* 1 column for small devices */
+padding-top: 0px; /* Adjust padding to ensure content is visible */
+
+}
+header{
+    position: relative;
+}
+.sidebar {
+display: none;
+
+}
+
+.main-content {
+margin-left: 0;
+width:fit-content;
+height: fit-content;
+padding: 1rem;
+}
+
+header nav ul {
+display: flex;
+
+padding-right: 0;
+}
+
+header nav ul li {
+padding: 0.5rem 0;
+text-align: center;
+}
+
+.hero {
+height: fit-content; /* Adjust hero section height for small screens */
+}
+
+footer .social-icons {
+justify-content: left;
+}
+
+footer {
+text-align: left;
+}
+}
+
+/* For tablet devices (481px to 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+        padding-top: 300px; /* Adjust padding for tablets */
+    }
+
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        height: calc(100vh - 50px);
+        width: 220px;
+    }
+
+    .main-content {
+        
+        margin-left: 120px;
+        width: calc(100% - 250px);
+        
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Adjust the size of hero text */
+    }
+
+    header nav ul {
+        gap: 1.5rem; /* Reduce gap for tablet devices */
+    }
+
+    header nav ul li {
+        padding: 0.3rem 0;
+        font-size: 1rem;
+    }
+}
+.section {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.section img {
+    width: 100%;
+    height: fit-content;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.section h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.section p {
+    font-size:17px;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background: #741927;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer .social-icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+}
+
+footer .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.social-iconsf{
+    color: red ;
+    display: flex ;
+    gap: 0.5rem;
+    justify-content: right;
+}
+
+footer .social-icons a:hover {
+    color: #A31F34;
+}
+
+.sidebar .footer-links {
+    margin-top: 230px;
+   text-align: center;
+    width: 100%;
+    display: block;
+    
+}
+
+.sidebar .footer-links a {
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    text-decoration: none;
+        margin: 5px 0;
+    
+}
+
+.sidebar .footer-links a:hover {
+    color: #A31F34;
+}
